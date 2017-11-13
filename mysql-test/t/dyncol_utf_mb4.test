@@ -1,0 +1,11 @@
+--source include/have_utf8mb4.inc
+
+--echo #
+--echo # MDEV-8949: COLUMN_CREATE unicode name breakage
+--echo #
+
+SET NAMES utf8mb4;
+SELECT COLUMN_JSON(COLUMN_CREATE(_utf8mb4 0xF09F988E, 1));
+SET NAMES default;
+
+--echo # End of 10.0 tests
